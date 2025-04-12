@@ -110,6 +110,9 @@ Node names are best guesses and MUST be verified against the installed grammar."
      ;; This handles '--' comments well.
      ;; ((node-is "comment") first-sibling 0)
 
+     ;; Function invocation
+     ((parent-is "invocation") parent-bol sql-ts-mode-indent-offset)
+     
      ;; Between Expression
      ((query ((between_expression (_) @field))) parent-bol 0)
      ;; Parenthesized Expression
@@ -130,7 +133,7 @@ Node names are best guesses and MUST be verified against the installed grammar."
      ;; after when before then
      ((query ((case (keyword_case) (keyword_when) (_) @after-when (keyword_then) ))) (sql-ts-mode--prev-sibling-bol-util "keyword_when")  sql-ts-mode-indent-offset)
      ((parent-is "case") parent-bol sql-ts-mode-indent-offset)
-     
+
      ;; After select
      ((query ((select (_) @after-select))) parent-bol sql-ts-mode-indent-offset)
      ;; After from, (from (keyword_from) (relation xx))
@@ -150,6 +153,9 @@ Node names are best guesses and MUST be verified against the installed grammar."
      ;; After join
      ((parent-is "join") parent-bol 0)
 
+     ;; After Statement
+     ((parent-is "statement") parent-bol 0)
+     
      ;; After cte
      ((parent-is "cte") parent-bol sql-ts-mode-indent-offset)
      
