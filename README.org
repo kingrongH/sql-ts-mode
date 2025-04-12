@@ -1,7 +1,7 @@
 #+title: Sql Tree-Sitter Mode
 #+author: kingrong
 
-sql treesitter support
+Emacs SQL Tree-Sitter mode, ~sql-ts-mode~
 - Syntax Highlight [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Parser_002dbased-Font-Lock.html][Parser-based Font Lock]]
 - Indentation [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Parser_002dbased-Indentation.html][Parser-based Indentation]]
 
@@ -29,7 +29,15 @@ install by ~straight~
   #+end_src
 - enable by hand ~M-x sql-ts-mode RET~
 
+* Current Status
+
+The current =sql-ts-mode= in this repository offers basic functionality for indentation and syntax highlighting. While I've been using it weekly for SQL editing, there's still room for improvement.
+
+Some todos list here
+- [ ] more indentation support, eg. create statement
+- [ ] integrated with treesit-fold, support fold for select, from, case etc.
+  - [ ] add key map for tab cycling between fold and indentation
+
 * Related Package
 
 - treesitter SQL grammar: [[https://github.com/DerekStride/tree-sitter-sql][DerekStride/tree-sitter-sql]] 
-
