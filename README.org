@@ -1,0 +1,35 @@
+#+title: Sql Tree-Sitter Mode
+#+author: kingrong
+
+sql treesitter support
+- Syntax Highlight [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Parser_002dbased-Font-Lock.html][Parser-based Font Lock]]
+- Indentation [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Parser_002dbased-Indentation.html][Parser-based Indentation]]
+
+* Install
+
+require
+- emacs-version >= 29.1
+  
+install by ~straight~
+#+begin_src elisp
+(straight-use-package
+ '(sql-ts-mode :type git :host github :repo "kingrongH/sql-ts-mode"))
+
+;; or integrated with use-pakage 
+(use-package sql-ts-mode
+  :straight '(sql-ts-mode :type git :host github :repo "kingrongH/sql-ts-mode"))
+#+end_src
+
+* Usage
+
+- auto enable  =*.sql=
+  #+begin_src elisp
+  (setq auto-mode-alist
+      (append '(("\\.sql\\'" . sql-ts-mode)) auto-mode-alist))
+  #+end_src
+- enable by hand ~M-x sql-ts-mode RET~
+
+* Related Package
+
+- treesitter SQL grammar: [[https://github.com/DerekStride/tree-sitter-sql][DerekStride/tree-sitter-sql]] 
+
