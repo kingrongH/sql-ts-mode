@@ -7,16 +7,15 @@
 ;; Created: 2025-03-31
 ;; Version: 0.1
 ;; Package-Requires: ((emacs "29.1"))
-;; Homepage: https://github.com/your/repo/location ;; Optional
+;; Homepage: https://github.com/kingrongH/sql-ts-mode
 ;; Keywords: languages sql tools tree-sitter
 
 ;; This file is not part of GNU Emacs.
 
-;; Licensed under the Apache License, Version 2.0 (the "License");
-;; you may not use this file except in compliance with the License.
-;; You may obtain a copy of the License at
-;;
-;;     http://www.apache.org/licenses/LICENSE-2.0
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ;;
 ;; Unless required by applicable law or agreed to in writing, software
 ;; distributed under the License is distributed on an "AS IS" BASIS,
@@ -153,6 +152,8 @@ Node names are best guesses and MUST be verified against the installed grammar."
      ;; After join
      ((parent-is "join") parent-bol 0)
 
+     ;; After Set operation
+     ((parent-is "set_operation") first-sibling 0)
      ;; After Statement
      ((parent-is "statement") parent-bol 0)
      
