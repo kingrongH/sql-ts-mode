@@ -6,7 +6,7 @@
 ;; Maintainer: Kingrong Huang  <kingronghuang@gmail.com>
 ;; Created: 2025-03-31
 ;; Version: 0.1
-;; Package-Requires: ((emacs "29.1") (treesit "0.3"))
+;; Package-Requires: ((emacs "29.1"))
 ;; Homepage: https://github.com/your/repo/location ;; Optional
 ;; Keywords: languages sql tools tree-sitter
 
