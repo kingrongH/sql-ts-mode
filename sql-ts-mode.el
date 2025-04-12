@@ -125,7 +125,9 @@ Node names are best guesses and MUST be verified against the installed grammar."
      ((and (parent-is "case") (node-is "keyword_end"))  parent-bol 0)
      ((and (parent-is "case") (node-is "keyword_then"))  parent-bol sql-ts-mode-indent-offset)
      ((and (parent-is "case") (node-is "when"))  parent-bol sql-ts-mode-indent-offset)
-     ;; after when
+     ;; multi when then case, after then, before when
+     ((query ((case (keyword_case) (keyword_then) (_) @multi-when-then (keyword_then) ))) parent-bol sql-ts-mode-indent-offset)
+     ;; after when before then
      ((query ((case (keyword_case) (keyword_when) (_) @after-when (keyword_then) ))) (sql-ts-mode--prev-sibling-bol-util "keyword_when")  sql-ts-mode-indent-offset)
      ((parent-is "case") parent-bol sql-ts-mode-indent-offset)
      
