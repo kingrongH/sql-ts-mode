@@ -124,6 +124,7 @@ Node names are best guesses and MUST be verified against the installed grammar."
      ;; CASE expression
      ((and (parent-is "case") (node-is "keyword_end"))  parent-bol 0)
      ((and (parent-is "case") (node-is "keyword_then"))  parent-bol sql-ts-mode-indent-offset)
+     ((and (parent-is "case") (node-is "when"))  parent-bol sql-ts-mode-indent-offset)
      ;; after when
      ((query ((case (keyword_case) (keyword_when) (_) @after-when (keyword_then) ))) (sql-ts-mode--prev-sibling-bol-util "keyword_when")  sql-ts-mode-indent-offset)
      ((parent-is "case") parent-bol sql-ts-mode-indent-offset)
@@ -147,10 +148,13 @@ Node names are best guesses and MUST be verified against the installed grammar."
      ;; After join
      ((parent-is "join") parent-bol 0)
 
+     ;; After cte
+     ((parent-is "cte") parent-bol sql-ts-mode-indent-offset)
+     
      ;; TODO support dml sql
      
      ;; Try to indent 'sql-ts-mode-indent-offset when else fails
-     ((catch-all) prev-line 0)
+     (catch-all prev-line 0)
      ))
   )
 
